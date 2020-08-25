@@ -1,0 +1,24 @@
+<div style="width:20%;margin:0 auto;">
+    <h1 style="text-align: center;">Login</h1>
+    <form [formGroup]="myLoginForm">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+            </div>
+            <input [class.is-invalid]="username.invalid &&username.touched" formControlName="username" type="text" class="form-control" >
+        </div>
+        <small style="float: right;" class="text-danger"  [class.d-none]="username.valid ||username.untouched">Username is required</small>
+
+        
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+            </div>
+            <input [class.is-invalid]="password.invalid &&password.touched" formControlName="password" type="password" class="form-control" >
+
+        </div>
+        <small style="float: right;" class="text-danger"  [class.d-none]="password.valid ||password.untouched">Password is required</small>
+
+        <button (click)="onSubmit()" [disabled] = "myLoginForm.invalid" type="submit" class="btn btn-success">Login</button>
+    </form>
+</div>
